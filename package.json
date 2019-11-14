@@ -1,0 +1,29 @@
+{
+  "name": "panoramic",
+  "version": "1.0.0",
+  "description": "Test project",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node lib/index.js",
+    "lint": "tslint --project tsconfig.json",
+    "test": "mocha -r ts-node/register src/*.spec.ts",
+    "watch": "tsc --watch"
+  },
+  "author": "Jan Hora",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node-fetch": "^2.5.3",
+    "@types/xml2js": "^0.4.5",
+    "node-fetch": "^2.6.0",
+    "xml2js": "^0.4.22"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.5",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "nyc": "^14.1.1",
+    "ts-node": "^8.5.0",
+    "typescript": "^3.7.2"
+  }
+}
