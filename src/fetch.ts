@@ -2,9 +2,7 @@ import fetch, { Response } from 'node-fetch';
 import { Parser } from 'xml2js';
 import * as fs from 'fs';
 import synsetParser from './synsetParser';
-
-const XML_URL = 'https://s3.amazonaws.com/static.operam.com/assignment/structure_released.xml';
-const FILE_NAME = 'export.json';
+import { XML_URL, FILE_NAME } from './constants.json';
 
 const writeFile = (data: string): Promise<void> => {
   return new Promise((resolve, reject) => {
