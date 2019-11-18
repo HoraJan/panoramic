@@ -4,19 +4,24 @@
   "description": "Test project",
   "main": "fetch.js",
   "scripts": {
-    "start": "tsc && node lib/fetch.js && node lib/saver.js",
+    "start": "tsc && npm run fetch && npm run save && npm run serve",
     "lint": "tslint --project tsconfig.json",
     "test": "mocha -r ts-node/register src/*.spec.ts",
     "watch": "tsc --watch",
     "fetch": "tsc && node lib/fetch.js",
-    "save": "tsc && node lib/saver.js"
+    "save": "tsc && node lib/saver.js",
+    "serve": "tsc && node lib/backend.js"
   },
   "author": "Jan Hora",
   "license": "ISC",
   "dependencies": {
+    "@types/express": "^4.17.2",
     "@types/node-fetch": "^2.5.3",
     "@types/node-persist": "^3.0.0",
     "@types/xml2js": "^0.4.5",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.8",
     "node-fetch": "^2.6.0",
     "node-persist": "^3.0.5",
     "xml2js": "^0.4.22"
