@@ -1,4 +1,4 @@
-Standard Node.JS TS App which download data from amazon server, parse them to flat JSON array structure and save them to local storage.
+Standard Node.JS TS App which download data from amazon server, parse them to flat JSON array structure, save them to local storage and serve them via HTTP GraphQL.
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ npm
 
 `npm install`
 
-## To run fetch&save
+## To run fetch&save&serve
 
 `npm start`
 
@@ -26,3 +26,7 @@ npm
 ## To run just storing to local storage
 
 `npm run save`
+
+## To run serve data via graphQL
+
+`npm run serve`

@@ -1,4 +1,4 @@
-import synsetParser from './synsetParser';
+import { parseSynsetToArray, parseSynsetToObject } from './synsetParser';
 import { expect } from 'chai';
 import 'mocha';
 
@@ -77,9 +77,51 @@ const expectedArray = [
   }
 ];
 
-describe('synset Parser', () => {
+const expectedObject = {
+  name: 'First',
+  size: 6,
+  children: [
+    {
+      name: 'First.First',
+      size: 4,
+      children: [
+        {
+          name: 'First.First.First',
+          size: 0
+        },
+        {
+          name: 'First.First.Second',
+          size: 2,
+          children: [
+            {
+              name: 'First.First.Second.First',
+              size: 0
+            },
+            {
+              name: 'First.First.Second.Second',
+              size: 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'First.Second',
+      size: 0
+    }
+  ]
+};
+
+describe('synset Parser to Array', () => {
   it('should return expected array', () => {
-    const result = synsetParser(testArray);
+    const result = parseSynsetToArray(testArray);
     expect(JSON.stringify(result)).to.equal(JSON.stringify(expectedArray));
+  });
+});
+
+describe('synset Parser to Object', () => {
+  it('should return expected object', () => {
+    const result = parseSynsetToObject(expectedArray);
+    expect(JSON.stringify(result)).to.equal(JSON.stringify(expectedObject));
   });
 });

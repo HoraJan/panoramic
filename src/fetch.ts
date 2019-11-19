@@ -1,7 +1,7 @@
 import fetch, { Response } from 'node-fetch';
 import { Parser } from 'xml2js';
 import * as fs from 'fs';
-import synsetParser from './synsetParser';
+import { parseSynsetToArray } from './synsetParser';
 import { XML_URL, FILE_NAME } from './constants.json';
 
 const writeFile = (data: string): Promise<void> => {
@@ -26,7 +26,7 @@ fetch(XML_URL)
     return parser.parseStringPromise(text);
   })
   .then(json => {
-    const flattenArray = synsetParser(json.ImageNetStructure.synset);
+    const flattenArray = parseSynsetToArray(json.ImageNetStructure.synset);
     const jsonArray = JSON.stringify(flattenArray, null, 2);
     return writeFile(jsonArray);
   })

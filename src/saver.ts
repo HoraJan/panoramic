@@ -1,6 +1,6 @@
 import * as storage from 'node-persist';
 import * as fs from 'fs';
-import { FILE_NAME } from './constants.json';
+import { FILE_NAME, STORAGE_FOLDER, STORAGE_KEY } from './constants.json';
 
 const readFile = (): Promise<string> => {
   return new Promise((resolve, reject) => {
@@ -16,7 +16,7 @@ const readFile = (): Promise<string> => {
 };
 
 const initStorage = (): Promise<storage.InitOptions> => {
-  return storage.init({ dir: 'storage' });
+  return storage.init({ dir: STORAGE_FOLDER });
 };
 
 initStorage()
@@ -24,10 +24,9 @@ initStorage()
   .then(fileString => {
     const array = JSON.parse(fileString);
 
-    return storage.setItem('data', array);
+    return storage.setItem(STORAGE_KEY, array);
   })
   .then(result => {
-    console.log(result);
     console.log('done');
   })
   .catch(err => console.error(err));
