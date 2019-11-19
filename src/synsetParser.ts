@@ -50,7 +50,7 @@ export const parseSynsetToObject = (arrayData: FinalObject[]): FinalObject => {
     treeLevelNamesArray.forEach(levelName => {
       let targetObject = (currentObject.children || []).filter(child => child.name === levelName)[0];
 
-      if (!!!targetObject) {
+      if (!targetObject) {
         targetObject = { name: levelName, size: 0 };
         currentObject.children = [...(currentObject.children || []), targetObject];
       }

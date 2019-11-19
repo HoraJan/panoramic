@@ -77,7 +77,7 @@ const expectedArray = [
   }
 ];
 
-const expectedObejct = {
+const expectedObject = {
   name: 'First',
   size: 6,
   children: [
@@ -122,6 +122,6 @@ describe('synset Parser to Array', () => {
 describe('synset Parser to Object', () => {
   it('should return expected object', () => {
     const result = parseSynsetToObject(expectedArray);
-    expect(JSON.stringify(result)).to.equal(JSON.stringify(expectedObejct));
+    expect(JSON.stringify(result)).to.equal(JSON.stringify(expectedObject));
   });
 });
