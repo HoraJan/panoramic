@@ -1,0 +1,19 @@
+.final-object {
+  &__header {
+    display: flex;
+  }
+
+  &__open-marker {
+    display: inline-block;
+  }
+  &__toggle-button {
+    &.opened {
+      .final-object__open-marker {
+        transform: rotate(90deg);
+      }
+    }
+  }
+  .highlighted {
+    background-color: yellow;
+  }
+}

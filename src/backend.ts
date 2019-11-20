@@ -5,6 +5,7 @@ import { buildSchema } from 'graphql';
 import * as storage from 'node-persist';
 import { parseSynsetToObject, FinalObject } from './synsetParser';
 import { STORAGE_FOLDER, STORAGE_KEY } from './constants.json';
+import { sendFile } from './fileServer';
 
 const getData = async (stringified: boolean = false): Promise<FinalObject | string | void> => {
   return storage
@@ -26,7 +27,7 @@ type Query {
     stringifiedData: String
     treeData: FinalObject
   }
-  
+
   type FinalObject {
     name: String
     size: Int
@@ -49,6 +50,10 @@ app.use(
     graphiql: true
   }))
 );
+
+app.use('/', (req: express.Request, res: express.Response) => {
+  sendFile(req, res);
+});
 
 app.listen(4000);
 console.log('Running a GraphQL API server at localhost:4000/graphql');

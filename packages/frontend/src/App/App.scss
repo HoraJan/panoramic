@@ -1,0 +1,19 @@
+.app {
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+
+  &__headline {
+    font-size: 200%;
+  }
+  &__menu {
+    display: flex;
+    flex-grow: 0;
+  }
+  &__content {
+    position: relative;
+    flex-grow: 1;
+  }
+}
