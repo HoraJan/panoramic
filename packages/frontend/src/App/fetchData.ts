@@ -20,11 +20,22 @@ const getQueryProps = () => {
   return response;
 };
 
+const indexChildren = (children: any[]): void => {
+  children.forEach((child, index) => {
+    child.index = index;
+    if (child.children) {
+      indexChildren(child.children);
+    }
+  });
+};
+
 export const FetchData = () =>
   ajax(getQueryProps()).pipe(
     map(response => {
       if (response.status === 200) {
-        return JSON.parse(response.response.data.stringifiedData);
+        const data = JSON.parse(response.response.data.stringifiedData);
+        indexChildren(data.children);
+        return data;
       }
       return of({ error: true, message: `Error ${response.status}` });
     }),
