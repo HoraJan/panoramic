@@ -1,19 +1,61 @@
+@import '../variables.scss';
+
 .app {
   padding: 1rem;
   box-sizing: border-box;
   display: flex;
   flex-flow: column;
   height: 100%;
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    width: 1024px;
+    margin: auto;
+  }
 
   &__headline {
-    font-size: 200%;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
   }
+
   &__menu {
     display: flex;
+    justify-content: space-between;
     flex-grow: 0;
+    padding-left: 0;
   }
+
+  &__search-wrapper {
+    display: flex;
+  }
+
   &__content {
     position: relative;
     flex-grow: 1;
+  }
+
+  &__close-button {
+    font-size: 200%;
+    border: none;
+    padding: 0 1rem;
+    width: 3rem;
+    cursor: pointer;
+    background-color: $button-color;
+    color: $basic-color;
+    &:hover {
+      background-image: linear-gradient(135deg, rgba(132, 53, 122, 0), #671a5d);
+    }
+  }
+
+  &__search-input {
+    width: 15rem;
+    border: none;
+    &.filled {
+      width: 12rem;
+    }
   }
 }

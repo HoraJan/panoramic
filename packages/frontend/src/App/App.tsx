@@ -63,9 +63,20 @@ export default class App extends React.Component<AppProps> {
     return (
       <div className={`${this.baseClass}`}>
         <menu className={`${this.baseClass}__menu`}>
-          <h1 className={`${this.baseClass}__headline`}>{this.props.headline}!</h1>
-          <input type="text" value={this.state.searchKey} onChange={this.handleSearch} />
-          {this.state.searchKey && <button onClick={() => this.clear()}>X</button>}
+          <h1 className={`${this.baseClass}__headline`}>{this.props.headline}</h1>
+          <div className={`${this.baseClass}__search-wrapper`}>
+            <input
+              className={`${this.baseClass}__search-input${this.state.searchKey ? ' filled' : ''}`}
+              type="text"
+              value={this.state.searchKey}
+              onChange={this.handleSearch}
+            />
+            {this.state.searchKey && (
+              <button className={`${this.baseClass}__close-button`} onClick={() => this.clear()}>
+                ×
+              </button>
+            )}
+          </div>
         </menu>
         <main className={`${this.baseClass}__content`}>
           {this.state.size > 0 && (
@@ -74,6 +85,8 @@ export default class App extends React.Component<AppProps> {
               size={this.state.size}
               children={this.state.children}
               searchKey={this.state.searchKey}
+              level={0}
+              index={0}
             />
           )}
           {this.state.loading && <LoadingOverlay />}
