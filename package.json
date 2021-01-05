@@ -6,11 +6,11 @@
   "scripts": {
     "start": "tsc && npm run fetch && npm run save && npm run serve",
     "lint": "tslint --project tsconfig.json",
-    "test": "mocha -r ts-node/register src/*.spec.ts",
+    "test": "mocha -r ts-node/register src/*.spec.ts && lerna run test",
     "watch": "tsc --watch",
     "fetch": "tsc && node lib/fetch.js",
     "save": "tsc && node lib/saver.js",
-    "serve": "tsc && node lib/backend.js"
+    "serve": "tsc && lerna run webpack && node lib/backend.js"
   },
   "author": "Jan Hora",
   "license": "ISC",
@@ -30,6 +30,7 @@
     "@types/chai": "^4.2.5",
     "@types/mocha": "^5.2.7",
     "chai": "^4.2.0",
+    "lerna": "^3.18.4",
     "mocha": "^6.2.2",
     "nyc": "^14.1.1",
     "ts-node": "^8.5.0",

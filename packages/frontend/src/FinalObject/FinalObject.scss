@@ -1,0 +1,64 @@
+@import '../variables.scss';
+
+.final-object {
+  overflow: hidden;
+  &__header {
+    display: flex;
+  }
+
+  &__open-marker {
+    display: inline-block;
+    transition: transform 0.3s;
+  }
+  &__toggle-button {
+    padding: 1rem 0;
+    line-height: 1rem;
+    color: $basic-color;
+    width: 100%;
+    text-align: left;
+    background-color: $button-color;
+    border: none;
+    appearance: none;
+    transition: all 0.3s;
+    border: solid 2px $button-color;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+
+    &.leave {
+      background-color: $button-leave-color;
+      padding: calc(1rem - 2px) 0;
+      cursor: inherit;
+    }
+
+    &:hover {
+      background-image: linear-gradient(135deg, rgba(132, 53, 122, 0), #671a5d);
+    }
+
+    &.opened {
+      .final-object__open-marker {
+        transform: rotate(270deg);
+      }
+    }
+  }
+
+  &__open-marker {
+    padding: 0 1rem;
+    transform: rotate(180deg);
+  }
+
+  &__placeholder {
+    width: 1rem;
+    display: inline-block;
+  }
+
+  &__leave-placeholder {
+    width: 1rem;
+    display: inline-block;
+  }
+
+  .highlighted {
+    background-color: $button-highlight-color;
+  }
+}

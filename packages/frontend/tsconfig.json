@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "outDir": "dist/lib/",
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es2015",
+    "jsx": "react"
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["./src/**/*.spec.ts", "./src/**/*.spec.tsx"]
+}
